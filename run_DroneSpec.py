@@ -150,23 +150,9 @@ def run():
     # Create parameter dictionary
     params = Parameters()
 
-    # Add the gases
-    params.add('SO2',  value=1.0e16, vary=True, xpath='Ref/SO2_295K.txt')
-    params.add('O3',   value=1.0e19, vary=True, xpath='Ref/O3_243K.txt')
-    params.add('Ring', value=0.1,    vary=True, xpath='Ref/Ring.txt')
-
-    # Add background polynomial parameters
-    params.add('bg_poly0', value=0.0, vary=True)
-    params.add('bg_poly1', value=0.0, vary=True)
-    params.add('bg_poly2', value=0.0, vary=True)
-    params.add('bg_poly3', value=1.0, vary=True)
-
-    # Add intensity offset parameters
-    params.add('offset0', value=0.0, vary=True)
-
-    # Add wavelength shift parameters
-    params.add('shift0', value=0.0, vary=True)
-    params.add('shift1', value=0.1, vary=True)
+    for name, info in config['FitParameters'].items():
+        info['value'] = float(info['value'])
+        params.add(name, **info)
 
     # Generate the analyser
     analyser = Analyser(params,
