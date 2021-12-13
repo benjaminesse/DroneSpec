@@ -81,7 +81,7 @@ def listener(q, save_fname):
 # =============================================================================
 
 def run():
-
+    """Run main program loop."""
     # Get the logger
     logger = logging.getLogger()
 
