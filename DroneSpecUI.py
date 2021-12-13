@@ -158,7 +158,7 @@ class MainWindow(QMainWindow):
         self.mapAx.addItem(self.volcPlot)
 
         # Generate the colorbar
-        self.cmap = pg.colormap.get('magma')
+        self.cmap = pg.colormap.get('viridis')
         im = pg.ImageItem()
         self.so2_data = []
         self.cbar = pg.ColorBarItem(values=(0, 100), colorMap=self.cmap)
