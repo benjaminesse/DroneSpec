@@ -1,3 +1,4 @@
+"""Control script for the DronePi user inerface."""
 import sys
 import yaml
 import time

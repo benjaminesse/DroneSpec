@@ -1,3 +1,4 @@
+"""Control script for the Drone Pi."""
 import os
 import sys
 import utm
